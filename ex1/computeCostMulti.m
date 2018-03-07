@@ -14,7 +14,10 @@ J = 0;
 %               You should set J to the cost.
 
 
+J = sum((X*theta-y).^2)/(2*m);
 
+% below is equation from pdf, identical to above one
+% J = 1/(2*m) * (X*theta-y)'*(X*theta-y);
 
 
 % =========================================================================

@@ -36,14 +36,16 @@ grad = zeros(size(theta));
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
 
+% calculate cost
+h = sigmoid(X*theta);
+% Note that you should not be regularizing theta0 which is used for the bias term.
+r = (lambda / (2*m)) * sum(theta(2:end).^2);
+J = -1/m * sum(y.*log(h) + (1-y).*log(1-h)) + r;
 
-
-
-
-
-
-
-
+% calculate gradient
+grad = 1/m * X' * (h - y) + lambda/m * theta;
+% bias term should not be regularized
+grad(1) = grad(1) - lambda/m * theta(1);
 
 % =============================================================
 
